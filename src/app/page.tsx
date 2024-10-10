@@ -1,101 +1,159 @@
-import Image from "next/image";
+'use client'
+import { Box, Divider, Heading, Text, Flex, Container, Image, Avatar, Icon, Link } from '@chakra-ui/react';
+import { useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { colorMode, toggleColorMode } = useColorMode();  // Chakra UI hook for theme toggling
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const themeGif = colorMode === 'light' ? '/icons/sun.gif' : '/icons/moon.gif';
+
+  // Adjust the paragraph text color for light and dark modes
+  const paragraphColor = useColorModeValue('gray.700', 'gray.300');
+  const keywordColor = useColorModeValue('purple.500', 'green.500');
+
+  return (
+    <Container maxW='container.lg' mx="auto" p={4}>
+
+      {/* Header Section */}
+      <Flex textAlign={['left', 'center']} justify={['flex-end', 'space-between']} direction={'row'} align="center">
+        <Container>
+          {/* Title */}
+          <Heading as="h1" size="2xl" pt={8} pb={1} fontFamily="Playfair Display, serif">
+            Rafael Tauran
+          </Heading>
+
+          {/* Subtitle */}
+          <Text
+            as='i'
+            fontSize={['md', 'lg', 'xl']}
+            color='gray.500'
+            fontFamily="serif"
+            mt={2}
           >
+            Goodbye Bloatware. Say hello to simplicity.
+          </Text>
+        </Container>
+
+        {/* Theme Toggle GIF */}
+        <Flex direction="column" align="center" mr={[4, 0]}>
+          <Image
+            src={themeGif}
+            alt="Theme toggle"
+            width="100px"
+            height="100px"
+            cursor="pointer"
+            onClick={toggleColorMode}
+          />
+        </Flex>
+      </Flex>
+
+      {/* Main Section */}
+      <Flex flexDirection={['column', 'column', 'column', 'row']} my={8} minH="400px">  {/* Stack column on lg and below */}
+        {/* Main Article */}
+        <Box flex='1'>
+          <Container maxW='600px' mx='auto'>
+            <Heading as="h2" size="lg" mb={4} fontFamily="serif">
+              The Big Scoop
+            </Heading>
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/books.webp"
+              alt="Books"
+              width={'auto'}
+              height={'auto'}
+              maxW={'100%'}
+              maxH={'100%'}
+              objectFit={'contain'}
+              mb={6}
+              rounded={'xl'}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <Text color={paragraphColor} mb={6}>
+              My name is Rafael. I graduated from the University of Warwick with a Master of Engineering degree in <Text as="span" color={keywordColor}>Computer Science</Text> and am currently pursuing a Master of Science degree in <Text as="span" color={keywordColor}>Information Studies (Data Science Track)</Text> at the University of Amsterdam. I like to learn about technology and find joy in understanding new concepts and applying them in real life. My current interests include AI, Statistical Data analytics, and Optimization Methods of algorithms.
+            </Text>
+          </Container>
+        </Box>
+
+        {/* Divider */}
+        <Divider borderWidth={'1px'} orientation={['horizontal', 'horizontal', 'horizontal', 'vertical']} mx={4} height={'auto'} display='block' />
+
+        {/* Sidebar: Timeline */}
+        <Container maxW='600px' w={['100%', '100%', '100%', '30%']} height="100%" p={4} textAlign={['center', 'center', 'center', 'left']}>
+          <Heading as="h3" size="md" fontFamily="serif" mb={4}>
+            Timeline
+          </Heading>
+          <Box>
+            <Box mb={4}>
+              <Heading as="h4" size="sm" fontFamily="serif" color="gray.600">
+                2002
+              </Heading>
+              <Text fontSize="sm" color="gray.500">Born in Jakarta, Indonesia</Text>
+            </Box>
+
+            <Box mb={4}>
+              <Heading as="h4" size="sm" fontFamily="serif" color="gray.600">
+                2024
+              </Heading>
+              <Text fontSize="sm" color="gray.500">
+                Completed Undergraduate Master's Program in Computer Science at the University of Warwick
+              </Text>
+            </Box>
+
+            <Box mb={4}>
+              <Heading as="h4" size="sm" fontFamily="serif" color="gray.600">
+                2025
+              </Heading>
+              <Text fontSize="sm" color="gray.500">
+                Expected to complete Graduate Master's Program in Data Science at the University of Amsterdam
+              </Text>
+            </Box>
+          </Box>
+
+          <Divider borderWidth={'1px'} orientation={'horizontal'} mx={4} height={'auto'} display={['block', 'block', 'block', 'none']} />
+
+          {/* Follow Me Section */}
+          <Box mt={8}>
+            <Heading as="h4" size="md" fontFamily="serif" mb={4}>
+              Follow Me
+            </Heading>
+            <Container>
+              <Flex
+                direction={['column', 'row']}
+                alignItems="center"
+                justifyContent={['center', 'flex-start']}
+              >
+                {/* Profile Picture */}
+                <Avatar
+                  src="/images/face.jpeg"
+                  size="xl"
+                  name="Rafael Tauran"
+                  mb={[4, 0]}
+                  mr={[0, 4]}
+                />
+
+                {/* Stacked Icons */}
+                <Flex direction={['row', 'column']} alignItems="center">
+                  <Link href="https://github.com/rafaeltauran" isExternal m={4}>
+                    <Icon as={FaGithub} boxSize="30px" cursor="pointer" />
+                  </Link>
+
+                  <Link href="https://www.linkedin.com/in/rafael-tauran/" isExternal>
+                    <Icon as={FaLinkedin} boxSize="30px" cursor="pointer" />
+                  </Link>
+                </Flex>
+              </Flex>
+
+              <Text fontSize="sm" color="gray.500" mt={4} textAlign={['center', 'left']}>
+                Stay connected through social media and updates.
+              </Text>
+            </Container>
+          </Box>
+        </Container>
+      </Flex>
+
+      {/* Footer Section */}
+      <Box as="footer" textAlign="center" mt={12}>
+        <Text color="gray.400">&copy; 2024 Rafael Tauran</Text>
+      </Box>
+    </Container>
   );
 }
