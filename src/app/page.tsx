@@ -16,7 +16,7 @@ export default function Home() {
     <Container maxW='container.lg' mx="auto" p={4}>
 
       {/* Header Section */}
-      <Flex textAlign={['left', 'center']} justify={['flex-end', 'space-between']} direction={'row'} align="center">
+      <Flex textAlign={['left', 'left', 'right', 'center']} justify={['flex-end', 'flex-end', 'flex-end', 'space-between']} direction={'row'} align="center">
         <Container>
           {/* Title */}
           <Heading as="h1" size="2xl" pt={8} pb={1} fontFamily="Playfair Display, serif">
@@ -36,7 +36,7 @@ export default function Home() {
         </Container>
 
         {/* Theme Toggle GIF */}
-        <Flex direction="column" align="center" mr={[4, 0]}>
+        <Flex direction="column" align="center" mr={[4, 4, 4, 0]}>
           <Image
             src={themeGif}
             alt="Theme toggle"
@@ -117,7 +117,7 @@ export default function Home() {
             </Heading>
             <Container>
               <Flex
-                direction={['column', 'row']}
+                direction={['column', 'column', 'column', 'row']}
                 alignItems="center"
                 justifyContent={['center', 'flex-start']}
               >
@@ -131,7 +131,7 @@ export default function Home() {
                 />
 
                 {/* Stacked Icons */}
-                <Flex direction={['row', 'column']} alignItems="center">
+                <Flex direction={['row', 'row', 'row', 'column']} alignItems="center">
                   <Link href="https://github.com/rafaeltauran" isExternal m={4}>
                     <Icon as={FaGithub} boxSize="30px" cursor="pointer" />
                   </Link>
@@ -142,7 +142,7 @@ export default function Home() {
                 </Flex>
               </Flex>
 
-              <Text fontSize="sm" color="gray.500" mt={4} textAlign={['center', 'left']}>
+              <Text fontSize="sm" color="gray.500" mt={4} textAlign={['center', 'center', 'center', 'left']}>
                 Stay connected through social media and updates.
               </Text>
             </Container>
