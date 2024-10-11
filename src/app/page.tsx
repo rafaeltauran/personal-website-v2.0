@@ -73,8 +73,8 @@ export default function Home() {
           </Container>
         </Box>
 
-        {/* Divider */}
-        <Divider borderWidth={'1px'} orientation={['horizontal', 'horizontal', 'horizontal', 'vertical']} mx={4} height={'auto'} display='block' />
+        {/* Responsive Divider */}
+        <Divider borderWidth={'1px'} orientation='horizontal' mx={4} height={'auto'} display='block' className='lg:rotate-90' />
 
         {/* Sidebar: Timeline */}
         <Container maxW='600px' w={['100%', '100%', '100%', '30%']} height="100%" p={4} textAlign={['center', 'center', 'center', 'left']}>
@@ -108,7 +108,7 @@ export default function Home() {
             </Box>
           </Box>
 
-          <Divider borderWidth={'1px'} orientation={'horizontal'} mx={4} height={'auto'} display={['block', 'block', 'block', 'none']} />
+          <Divider borderWidth='1px' orientation='horizontal' mx={4} height='auto' display={['block', 'block', 'block', 'none']} />
 
           {/* Follow Me Section */}
           <Box mt={8}>
