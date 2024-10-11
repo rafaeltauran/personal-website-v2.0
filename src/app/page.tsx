@@ -1,5 +1,6 @@
+
 'use client'
-import { Box, Divider, Heading, Text, Flex, Container, Image, Avatar, Icon, Link } from '@chakra-ui/react';
+import { Box, Divider, Heading, Text, Flex, Container, Image, Avatar, Icon, Link, useBreakpointValue } from '@chakra-ui/react';
 import { useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -49,7 +50,7 @@ export default function Home() {
       </Flex>
 
       {/* Main Section */}
-      <Flex flexDirection={['column', 'column', 'column', 'row']} my={8} minH="400px">  {/* Stack column on lg and below */}
+      <Flex flexDirection={['column', 'column', 'column', 'row']} my={8} minH="400px">
         {/* Main Article */}
         <Box flex='1'>
           <Container maxW='600px' mx='auto'>
@@ -74,7 +75,8 @@ export default function Home() {
         </Box>
 
         {/* Responsive Divider */}
-        <Divider borderWidth={'1px'} orientation='horizontal' mx={4} height={'auto'} display='block' className='lg:rotate-90' />
+        <Divider borderWidth={'1px'} orientation={'horizontal'} my={4} alignSelf={'center'} maxW={'550px'} height={'auto'} display={['block', 'block', 'block', 'none']} />
+        <Divider borderWidth={'1px'} orientation={'vertical'} mx={4} height={'auto'} display={['none', 'none', 'none', 'block']} />
 
         {/* Sidebar: Timeline */}
         <Container maxW='600px' w={['100%', '100%', '100%', '30%']} height="100%" p={4} textAlign={['center', 'center', 'center', 'left']}>
@@ -108,7 +110,7 @@ export default function Home() {
             </Box>
           </Box>
 
-          <Divider borderWidth='1px' orientation='horizontal' mx={4} height='auto' display={['block', 'block', 'block', 'none']} />
+          <Divider borderWidth={'1px'} orientation={'horizontal'} mx={4} height={'auto'} display={['block', 'block', 'block', 'none']} />
 
           {/* Follow Me Section */}
           <Box mt={8}>
@@ -157,3 +159,4 @@ export default function Home() {
     </Container>
   );
 }
+
