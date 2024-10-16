@@ -1,4 +1,3 @@
-
 'use client'
 import { Box, Divider, Heading, Text, Flex, Container, Image, Avatar, Icon, Link, useBreakpointValue } from '@chakra-ui/react';
 import { useColorMode, useColorModeValue } from '@chakra-ui/react';
